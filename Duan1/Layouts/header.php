@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./public/bootstrap-5.3.2/dist/css/bootstrap.css">
+    <script src="./public/bootstrap-5.3.2/dist/js/bootstrap.js"></script>
+
+    <title> KHÁCH SẠN THÀNH PHÁT</title>
+
+
+    <style>
+    .slick-prev {
+        position: absolute;
+        display: block;
+        top: 40%;
+        right: 0;
+        z-index: 5;
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 15px 0px 0px 15px;
+        background: #fffdf9;
+        box-shadow: 0px 1px 5px white;
+    }
+
+    .slick-next {
+        position: absolute;
+        display: block;
+        top: 40%;
+        left: 0;
+        z-index: 5;
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 0px 15px 15px 0px;
+        background: #fffdf9;
+        box-shadow: 0px 1px 5px white;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-menu">
+        <div class="row">
+            <div class="col-4">
+                <div class="col-icon py-4">
+                    <div class="col-5 font-icon">
+
+                        <i class="fa-solid fa-phone" style="color: #11ccd0;"></i> 0931247957
+                    </div>
+                    <div class="col-1 font-icon">
+                        <i class="fa-brands fa-facebook" style="color: #0b57da;"></i>
+                    </div>
+                    <div class="col-1 font-icon">
+                        <i class="fa-brands fa-youtube" style="color: #f31212;"></i>
+                    </div>
+                    <div class="col-1 font-icon">
+                        <i class="fa-brands fa-instagram" style="color: #f49106;"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-4">
+                <div class="col-icon-3 ">
+                    <a class="text-decoration-none" href="index.php"><img src="images/logoks.PNG" alt=""></a>
+                    <h6>THÀNH PHÁT</h6>
+                </div>
+            </div>
+            <div class="col-1">
+                <div class="mt-3">
+                    <div class="row">
+                        <div class="col menu-cc ps-5">
+                            <button type="button" id="dropdownMenuButton1" class="" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa fa-bars"></i>
+
+                            </button>
+                            <ul class="menu-c">
+                                <li><a class="text-decoration-none" href="index.php?action=des">Điểm đến</a></li>
+                                <li><a class="text-decoration-none" href="index.php?action=roms">Ưa đãi</a></li>
+                                <li><a class="text-decoration-none" href="index.php?action=ctcombo">Combo</a></li>
+                                <li><a class="text-decoration-none" href="index.php?action=tintuc">Tin tức</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="cha mt-3">
+                    <?php  if(isset($_SESSION['email'])){
+                                   extract($_SESSION['email']);
+                                   $tr =' <li><i class="fa-solid fa-user"></i><a class="text-decoration-none" href="">'.$name_kh.'</a></li>';
+                                   echo $tr;
+                                 ?>
+                    <ul class="con">
+                        <?php if($role == 1) { ?>
+
+                        <li><a class="text-decoration-none" href="./admin/index.php">Vào trang admin</a></li>
+
+
+                        <?php } ?>
+                        <?php if($role == 0) { ?>
+
+                        <li><a class="text-decoration-none" href="index.php?action=ls_rom_kh">Vào trang của tôi</a>
+                        </li>
+
+
+                        <?php } ?>
+
+
+                        <li><a class="text-decoration-none" href="index.php?action=thoat">Thoát</a></li>
+                    </ul>
+                </div>
+                <?php } else{?>
+                <li>
+                    <a class="text-decoration-none" class="text-decoration-none" href="Layouts/login.php">Đăng nhập</a>
+                </li>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
